@@ -2,10 +2,10 @@ import {
   FETCH_CONVERSION
 } from '../actions/types';
 
-export default (state = {}, action) => {
+export default (state = null, action) => {
   switch (action.type) {
       case FETCH_CONVERSION:
-          return action.payload;
+          return action.payload.results;
       default:
           return state;
   }
