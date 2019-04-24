@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 
-import ConvertBase from './ConvertBase';
-import ConvertTarget from './ConvertTarget';
+import ConvertAmount from './ConvertAmount';
+import ConvertCurrencies from './ConvertCurrencies';
 import currencies from '../../data/currencies.json';
+import { fetchConversion } from '../../actions';
 
 class ConvertForm extends React.Component {
+  // Render list of currency options from /data/currencies.json
   renderCurrencyOptions(currencies) {
     return currencies.map((currency) => {
       return (
@@ -21,6 +23,10 @@ class ConvertForm extends React.Component {
     });
   }
 
+  onSubmit = ({ baseCurr, targetCurr }) => {
+    this.props.fetchConversion(baseCurr, targetCurr);
+  }
+
   render() {
     // Convert json to array and then sort by currencyName value
     const currenciesSorted = Object.values(currencies).sort((a,b)=> {
@@ -28,14 +34,34 @@ class ConvertForm extends React.Component {
     });
 
     return (
-      <form>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         Convert Form
-        <ConvertBase currencies={this.renderCurrencyOptions(currenciesSorted)} />
-        <ConvertTarget currencies={this.renderCurrencyOptions(currenciesSorted)} />
-        <input type="submit" value="Convert" />
+        <Field name="amount" type="text" component={ConvertAmount} />
+        <Field name="baseCurr" label="From" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
+        <Field name="targetCurr" label="To" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
+        <button type="submit">Convert</button> 
       </form>
     );
   }
 }
 
-export default ConvertForm;
+const validate = (values) => {
+  const errors ={};
+  if (!values.amount) {
+    errors.amount = 'Enter an amount';
+  } else if (isNaN(Number(values.amount))) {
+    errors.amount = 'Enter a valid number';
+  }
+
+  if (!values.baseCurr) {
+      errors.baseCurr = true;
+  }
+
+  if (!values.targetCurr) {
+      errors.targetCurr = true;
+  }
+
+  return errors;
+};
+
+export default connect(null, { fetchConversion })(reduxForm({ form: 'convertForm', validate })(ConvertForm));

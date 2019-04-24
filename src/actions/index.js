@@ -5,8 +5,8 @@ import {
 } from './types';
 
 // gets target currency value for base currency value
-export const fetchConversion = (baseCurr, targetCurr, amount = 1) => async dispatch => {
-  const response = await axios.get(`https://free.currconv.com/api/v7/convert?q=GBP_JPY&apiKey=94b2bea57b4a99b1acfc`);
+export const fetchConversion = (baseCurr = '', targetCurr = '') => async dispatch => {
+  const response = await axios.get(`https://free.currconv.com/api/v7/convert?q=${baseCurr}_${targetCurr}&apiKey=94b2bea57b4a99b1acfc`);
   
-  dispatch({ type: FETCH_CONVERSION, payload: response.data });
+  dispatch({ type: FETCH_CONVERSION, payload: response.data.results[`${baseCurr}_${targetCurr}`] });
 }

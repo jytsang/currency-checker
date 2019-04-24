@@ -4,17 +4,13 @@ import { connect } from 'react-redux';
 import { fetchConversion } from '../../actions';
 
 class ShowConversion extends React.Component {
-  componentDidMount() {
-    this.props.fetchConversion();
-  }
-
   render() {
     if(this.props.conversion === null){
       return (null);
     }
 
     return (
-      <div>{this.props.conversion.GBP_JPY.val}</div>
+      <div>{this.props.conversion.val}</div>
     );
   }
 }
