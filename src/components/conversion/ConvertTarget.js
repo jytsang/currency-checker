@@ -7,11 +7,7 @@ class ConvertTarget extends React.Component {
         <fieldset>
           <label htmlFor="targetCurr">To</label>
           <select id="targetCurr" name="targetCurr">
-            {this.props.currencies.map((currency) => {
-              return (
-                <option value={currency.id} key={currency.id}>{currency.currencyName} ({currency.currencySymbol})</option>
-              );
-            })}
+            {this.props.currencies}
           </select>
         </fieldset>
       </div>

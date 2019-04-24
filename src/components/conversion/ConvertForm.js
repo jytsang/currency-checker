@@ -7,6 +7,20 @@ import ConvertTarget from './ConvertTarget';
 import currencies from '../../data/currencies.json';
 
 class ConvertForm extends React.Component {
+  renderCurrencyOptions(currencies) {
+    return currencies.map((currency) => {
+      return (
+        <option 
+          key={currency.id}
+          value={currency.id}
+        >
+        {currency.currencyName}
+        {currency.currencySymbol && ` (${currency.currencySymbol})`}
+        </option>
+      );
+    });
+  }
+
   render() {
     // Convert json to array and then sort by currencyName value
     const currenciesSorted = Object.values(currencies).sort((a,b)=> {
@@ -16,8 +30,8 @@ class ConvertForm extends React.Component {
     return (
       <form>
         Convert Form
-        <ConvertBase currencies={currenciesSorted} />
-        <ConvertTarget currencies={currenciesSorted} />
+        <ConvertBase currencies={this.renderCurrencyOptions(currenciesSorted)} />
+        <ConvertTarget currencies={this.renderCurrencyOptions(currenciesSorted)} />
         <input type="submit" value="Convert" />
       </form>
     );
