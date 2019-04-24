@@ -3,10 +3,11 @@ import React from 'react';
 class ConvertCurrencies extends React.Component {
   render() {
     const { input, currencies, label } = this.props;
-    console.log(this.props);
+    const className = `form-group form-group-currency`;
+    
     return (
-      <fieldset>
-        <label htmlFor={input.name}>{label}</label>
+      <fieldset className={className}>
+        <label className="form-group-label" htmlFor={input.name}>{label}</label>
         <select id={input.name} {...input}>
           <option value="">Select a currency</option>
           {currencies}

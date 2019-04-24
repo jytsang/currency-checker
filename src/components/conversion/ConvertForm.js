@@ -34,13 +34,18 @@ class ConvertForm extends React.Component {
     });
 
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        Convert Form
-        <Field name="amount" type="text" component={ConvertAmount} />
-        <Field name="baseCurr" label="From" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
-        <Field name="targetCurr" label="To" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
-        <button type="submit">Convert</button> 
-      </form>
+      <div className="container">
+        <form className="convert-form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+          <div className="clearfix">
+            <Field name="amount" type="text" component={ConvertAmount} />
+            <Field name="baseCurr" label="From" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
+            <Field name="targetCurr" label="To" component={ConvertCurrencies} currencies={this.renderCurrencyOptions(currenciesSorted)} />
+          </div>
+          <div className="submit-container">
+            <button className="button-submit" type="submit">Convert</button> 
+          </div>
+        </form>
+      </div>
     );
   }
 }

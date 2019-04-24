@@ -10,7 +10,9 @@ class ShowConversion extends React.Component {
     }
 
     return (
-      <div>{this.props.conversion.val}</div>
+      <div className="result container">
+        {this.props.conversion.val}
+      </div>
     );
   }
 }

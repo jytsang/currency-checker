@@ -2,7 +2,11 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header>Header</header>
+    <header className="header">
+      <div className="container">
+        <h1>Currency Converter</h1>
+      </div>
+    </header>
   );
 };
 
