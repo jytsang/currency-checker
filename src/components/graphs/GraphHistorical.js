@@ -34,7 +34,7 @@ class ShowGraphHistorical extends React.Component {
         align: 'left'
       },
       yaxis: {
-        decimalsInFloat: 4,
+        decimalsInFloat: 5,
         tickAmount: Object.keys(this.props.historical.val).length
       },
       markers: {
