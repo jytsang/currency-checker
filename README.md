@@ -39,3 +39,9 @@ Used to make calls to the api.
 ### redux-thunk
 
 Thunk middleware to allow async actions with redux when dispatching an AJAX calls.
+
+### APEXCHARTS.JS
+
+https://apexcharts.com/
+
+Used to render the historical data graph.

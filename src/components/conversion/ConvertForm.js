@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import ConvertAmount from './ConvertAmount';
 import ConvertCurrencies from './ConvertCurrencies';
 import currencies from '../../data/currencies.json';
-import { fetchConversion } from '../../actions';
+import { fetchConversion, fetchHistorical } from '../../actions';
 
 class ConvertForm extends React.Component {
   // Render list of currency options from /data/currencies.json
@@ -26,6 +26,7 @@ class ConvertForm extends React.Component {
 
   onSubmit = ({ baseCurr, targetCurr, amount }) => {
     this.props.fetchConversion(baseCurr, targetCurr, amount);
+    this.props.fetchHistorical(baseCurr, targetCurr);
   }
 
   render() {
@@ -70,4 +71,4 @@ const validate = (values) => {
   return errors;
 };
 
-export default connect(null, { fetchConversion })(reduxForm({ form: 'convertForm', validate })(ConvertForm));
+export default connect(null, { fetchConversion, fetchHistorical })(reduxForm({ form: 'convertForm', validate })(ConvertForm));
