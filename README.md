@@ -6,6 +6,8 @@ View list of currencies: https://free.currconv.com/api/v7/currencies?apiKey=samp
 
 ## How to run the project
 
+Requires node and npm to run - https://nodejs.org/
+
 1. Clone repository from Github.
 2. Open a terminal in the root folder and run `npm install`.
 3. Run `npm start` to start the server and go to http://localhost:3000/.

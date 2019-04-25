@@ -17,6 +17,7 @@ class ConvertForm extends React.Component {
           value={currency.id}
         >
         {currency.currencyName}
+        {` (${currency.id})`}
         {currency.currencySymbol && ` (${currency.currencySymbol})`}
         </option>
       );
