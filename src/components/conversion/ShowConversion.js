@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchConversion } from '../../actions';
-
 class ShowConversion extends React.Component {
   render() {
     // Only render component if conversion data exists
@@ -31,4 +29,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchConversion })(ShowConversion);
+export default connect(mapStateToProps)(ShowConversion);
