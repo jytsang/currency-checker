@@ -8,8 +8,8 @@ class ConvertAmount extends React.Component {
     return (
       <fieldset className={className}>
         <label className="form-group-label" htmlFor={input.name}>Amount</label>
-        <input id={input.name} {...input} type={type} />
-        <span>{meta.touched && meta.error}</span>
+        <input className="form-group-input" id={input.name} {...input} type={type} />
+        <div className="text-error">{meta.touched && meta.error}</div>
       </fieldset>
     );
   }

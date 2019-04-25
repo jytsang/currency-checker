@@ -1,5 +1,6 @@
-import 'normalize.css';
-import './style.css';
+import 'sanitize.css';
+import './css/style.css';
+import './css/medium.css';
 import React from 'react';
 
 import Header from './components/template/Header';

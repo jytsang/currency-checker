@@ -8,7 +8,7 @@ class ConvertCurrencies extends React.Component {
     return (
       <fieldset className={className}>
         <label className="form-group-label" htmlFor={input.name}>{label}</label>
-        <select id={input.name} {...input}>
+        <select className="form-group-select" id={input.name} {...input}>
           <option value="">Select a currency</option>
           {currencies}
         </select>
