@@ -23,8 +23,8 @@ class ConvertForm extends React.Component {
     });
   }
 
-  onSubmit = ({ baseCurr, targetCurr }) => {
-    this.props.fetchConversion(baseCurr, targetCurr);
+  onSubmit = ({ baseCurr, targetCurr, amount }) => {
+    this.props.fetchConversion(baseCurr, targetCurr, amount);
   }
 
   render() {

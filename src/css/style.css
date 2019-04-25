@@ -79,6 +79,7 @@ a {
 }
 
 .text-error {
+  margin-top: 3px;
   color: red;
 }
 

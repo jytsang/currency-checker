@@ -3,7 +3,7 @@ import React from 'react';
 class ConvertAmount extends React.Component {
   render() {
     const { input, meta, type } = this.props;
-    const className = `form-group form-group-amount`;
+    const className = `form-group form-group-amount ${meta.touched && meta.error ? 'form-group-error' : ''}`;
     
     return (
       <fieldset className={className}>

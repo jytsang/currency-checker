@@ -2,8 +2,8 @@ import React from 'react';
 
 class ConvertCurrencies extends React.Component {
   render() {
-    const { input, currencies, label } = this.props;
-    const className = `form-group form-group-currency`;
+    const { input, meta, currencies, label } = this.props;
+    const className = `form-group form-group-currency ${meta.touched && meta.error ? 'form-group-error' : ''}`;
     
     return (
       <fieldset className={className}>

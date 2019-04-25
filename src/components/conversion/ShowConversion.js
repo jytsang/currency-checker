@@ -5,17 +5,20 @@ import { fetchConversion } from '../../actions';
 
 class ShowConversion extends React.Component {
   render() {
-    // if(this.props.conversion === null){
-    //   return (null);
-    // }
+    // Only render component if conversion data exists
+    if(this.props.conversion === null){
+      return (null);
+    }
+
+    const { amount, fr, to, total, val } = this.props.conversion;
 
     return (
       <div className="result container">
         <div className="result-amount">
-          <span className="result-amount-base">100.00 USD</span> <span className="result-amount-sign">=</span> <span className="result-amount-target">1000.00 JPY</span>
+          <span className="result-amount-base">{amount} {fr}</span> <span className="result-amount-sign">=</span> <span className="result-amount-target">{total} {to}</span>
         </div>
         <div className="result-single">
-          <span className="result-amount-base">1 USD</span> <span className="result-amount-sign">=</span> <span className="result-amount-target">100 JPY{/* {this.props.conversion.val} */}</span>
+          <span className="result-amount-base">1 {fr}</span> <span className="result-amount-sign">=</span> <span className="result-amount-target">{val} {to}</span>
         </div>
       </div>
     );
