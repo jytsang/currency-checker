@@ -2,7 +2,7 @@
 
 This project uses the api provided by [https://www.currencyconverterapi.com/](https://www.currencyconverterapi.com/).
 
-View list of currencies: https://free.currconv.com/api/v7/currencies?apiKey=sample-api-key
+View list of currencies: https://free.currconv.com/api/v7/currencies?apiKey=sample-api-key (saved to /data/currencies.json to remove an api call for a static list)
 
 ## How to run the project
 
